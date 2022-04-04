@@ -12,6 +12,6 @@ app.get('/raca/cor', (req, res) => {
     res.send('Cor do animal')
 })
 
-app.listen(3000, () => {
+app.listen(5000, () => {
     console.log('Servido rodando...')
 })
