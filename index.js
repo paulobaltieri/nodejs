@@ -1,30 +1,28 @@
 const express = require('express')
 const app = express()
 
-app.get('/', (req, res) => {
-    res.send('Olá mundo')
+app.get('/nome', (req, res) => {
+    res.send('Nome do animal')
 })
-app.get('/animal/:nome/:sobrenome', (req, res) => {
-    const nome = req.params.nome
-    const sobrenome = req.params.sobrenome
-    res.send(`Olá ${nome} ${sobrenome}`)
+app.get('/raca', (req, res) => {
+    res.send('Raca do animal')
 })
-app.get('/raca/:nome?', (req, res) => {
-    const rac = req.params.nome
-    if (rac) {
-        res.send('Raça do animal')
+app.get('/porte', (req, res) => {
+    res.send('Porte do animal')
+})
+app.get('/proprietario/:nomeprop', (req, res) => {
+    const propt = req.params.nomeprop
+    res.send(`Proprietario: ${propt}`)
+})
+app.get('/pelagem/:corpelo?', (req, res) => {
+    const corpelagem = req.params.corpelo
+    if (corpelagem != undefined) {
+        res.send(`Pelagem do cachorro: ${corpelagem}`)
     } else {
-        res.send('A raça não foi informada')
+        res.send('A cor do pelo não foi informada 😲 ')
     }
 
 })
-app.get('/raca/cor', (req, res) => {
-    res.send('Cor do animal')
+app.listen(3000, () => {
+    console.log('Servidor rodando...')
 })
-
-app.listen(5000, () => {
-    console.log('Servido rodando...')
-})
-
-//req = Dados enviados pelo usuario
-//res = resposta que vai ser enviada para o usuario
