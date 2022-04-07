@@ -19,7 +19,7 @@ app.get('/pelagem/:corpelo?', (req, res) => {
     if (corpelagem != undefined) {
         res.send(`Pelagem do cachorro: ${corpelagem}`)
     } else {
-        res.send('A cor do pelo não foi informada 😲 ')
+        res.send('A cor do pelo não foi informada! 😲 ')
     }
 
 })
